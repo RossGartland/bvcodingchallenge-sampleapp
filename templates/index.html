@@ -5,117 +5,298 @@
     <title>Dashboard - BV Coding Challenge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="shortcut icon" href="/static/favicon.png" />
 </head>
 
 <body>
-<header>
-    <div class="container-xl p-4">
-        <div class="row">
-            <div class="col-xs-12">
-                <a href="/" data-click-type="header" data-click-text="Home" class="d-inline-block">
-                    <svg width="62px" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-200.000000, -65.000000)" fill="#002E6E">
-                                <g id="logo" transform="translate(200.000000, 65.000000)">
-                                    <path d="M62,30.9996112 C62,13.8794712 48.1211102,0 31,0 C13.8788898,0 0,13.8794712 0,30.9996112 L0,62 L31,62 C48.1211102,62 62,48.1205288 62,30.9996112 M44.2802306,26.1982893 C46.3953122,26.1982893 48.1098659,27.9129082 48.1098659,30.0279938 C48.1098659,32.1426905 46.3953122,33.8573095 44.2802306,33.8573095 C42.1651491,33.8573095 40.4505954,32.1426905 40.4505954,30.0279938 C40.4505954,27.9129082 42.1651491,26.1982893 44.2802306,26.1982893 M44.2802306,36.4521773 C46.3953122,36.4521773 48.1098659,38.1667963 48.1098659,40.281493 C48.1098659,42.3965785 46.3953122,44.1111975 44.2802306,44.1111975 C42.1651491,44.1111975 40.4505954,42.3965785 40.4505954,40.281493 C40.4505954,38.1667963 42.1651491,36.4521773 44.2802306,36.4521773 M14.7939389,35.1271384 L14.7939389,35.1154743 L14.7939389,18.2608865 L21.5412623,18.2608865 L21.5412623,35.1154743 L21.5412623,35.1271384 C21.5412623,37.7356143 23.6555683,39.850311 26.2634581,39.850311 C28.8717355,39.850311 30.9860416,37.7356143 30.9860416,35.1271384 C30.9860416,32.5190513 28.8717355,30.4047434 26.2634581,30.4047434 L26.2603562,30.4047434 L24.2398814,30.4047434 L24.2398814,23.6586314 L26.2603562,23.6586314 L26.2634581,23.6586314 C32.5982339,23.6586314 37.7322018,28.7927683 37.7322018,35.1271384 C37.7322018,41.4618974 32.5982339,46.596423 26.2634581,46.596423 C19.9294577,46.596423 14.7939389,41.4618974 14.7939389,35.1271384"></path>
+
+    <section class="content" id='content'>
+        <div class="header" id="header">
+            <div class="container-xl p-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="/" data-click-type="header" data-click-text="Home" class="d-inline-block">
+                            <svg width="62px" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-200.000000, -65.000000)" fill="#002E6E">
+                                        <g id="logo" transform="translate(200.000000, 65.000000)">
+                                            <path
+                                                d="M62,30.9996112 C62,13.8794712 48.1211102,0 31,0 C13.8788898,0 0,13.8794712 0,30.9996112 L0,62 L31,62 C48.1211102,62 62,48.1205288 62,30.9996112 M44.2802306,26.1982893 C46.3953122,26.1982893 48.1098659,27.9129082 48.1098659,30.0279938 C48.1098659,32.1426905 46.3953122,33.8573095 44.2802306,33.8573095 C42.1651491,33.8573095 40.4505954,32.1426905 40.4505954,30.0279938 C40.4505954,27.9129082 42.1651491,26.1982893 44.2802306,26.1982893 M44.2802306,36.4521773 C46.3953122,36.4521773 48.1098659,38.1667963 48.1098659,40.281493 C48.1098659,42.3965785 46.3953122,44.1111975 44.2802306,44.1111975 C42.1651491,44.1111975 40.4505954,42.3965785 40.4505954,40.281493 C40.4505954,38.1667963 42.1651491,36.4521773 44.2802306,36.4521773 M14.7939389,35.1271384 L14.7939389,35.1154743 L14.7939389,18.2608865 L21.5412623,18.2608865 L21.5412623,35.1154743 L21.5412623,35.1271384 C21.5412623,37.7356143 23.6555683,39.850311 26.2634581,39.850311 C28.8717355,39.850311 30.9860416,37.7356143 30.9860416,35.1271384 C30.9860416,32.5190513 28.8717355,30.4047434 26.2634581,30.4047434 L26.2603562,30.4047434 L24.2398814,30.4047434 L24.2398814,23.6586314 L26.2603562,23.6586314 L26.2634581,23.6586314 C32.5982339,23.6586314 37.7322018,28.7927683 37.7322018,35.1271384 C37.7322018,41.4618974 32.5982339,46.596423 26.2634581,46.596423 C19.9294577,46.596423 14.7939389,41.4618974 14.7939389,35.1271384">
+                                            </path>
+                                        </g>
+                                    </g>
                                 </g>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-                <p class="h4 d-inline-block font-weight-bolder pl-2">UU Coding Challenge</p>
+                            </svg>
+                        </a>
+                        <p class="h4 d-inline-block font-weight-bolder pl-2">UU Coding Challenge</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <section class="bg-light">
-        <div class="container-xl p-4 mb-5">
             <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="display-4">Beer Reviews Dashboard</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-md-6 p-0">
-                    <p>The beer reviews dashboard is a high-level summary of key metrics across the dataset</p>
-                </div>
-                <div class="col-xs-12 col-md-6 p-0 text-right">
-                    <!-- HINT: You may want to use Jinja templating - https://jinja.palletsprojects.com/en/2.11.x/templates/ -->
-                    <p class="font-weight-bold">{{ todays_date.strftime('%d %B, %Y') }}</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</header>
-
-<div id="content">
-    <main>
-      <!-- HINT: Bootstrap grid system is awesome :) - https://getbootstrap.com/docs/4.5/layout/grid/ -->
-      <section class="mb-5">
-          <div class="container bg-light py-3">
-              <div class="row">
-                  <div class="col-xs-12 px-3">
-                      <h5 class="mb-3">Beer Ratings &amp; Reviews</h5>
-                  </div>
-              </div>
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                  <!-- HINT: You may want to look at Jinja loops - https://jinja.palletsprojects.com/en/2.11.x/templates/#list-of-control-structures -->
-                  <div class="col d-flex align-items-stretch mb-3">
-                    <!-- HINT: Bootstrap cards! - https://getbootstrap.com/docs/4.5/components/card/ -->
-                    <div class="card shadow rounded">
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="card-subtitle mb-2 h6 text-radical-red text-uppercase">Stat Title</h6>
-                            <h4 class="card-title display-4">100%</h4>
-                            <h5 class="mb-5">Stat sub title</h5>
-                            <p class="card-text text-muted mt-auto">Stat footnote</p>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title display-4 dashboard-title">Reviews Dashboard</h5>
+                            <h6 class="card-subtitle">{{ todays_date.strftime('%d %B, %Y') }}</h6>
+                            <p class="card-text">
+                                The beer reviews dashboard is a high-level summary of key metrics across the dataset
+                            </p>
                         </div>
                     </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+                </div>
+            </div>
+        </div>
 
-      <section class="mb-5">
-          <div class="container-xl bg-light">
-              <div class="row">
-                  <div class="col p-3">
-                      <h5 class="mb-3">Beers by overall average</h5>
-                      <div class="table-responsive">
-                        <!-- HINT: Bootstrap tables - https://getbootstrap.com/docs/4.5/content/tables/ -->
-                        <table class="table table-striped bg-white">
-                          <thead>
-                          <tr>
+        <img onmouseover="bigImg(this)" onmouseout="normalImg(this)"
+        src="https://littlevillagemag.com/wp-content/uploads/2020/04/computer-meme-2.jpg" alt="Smiley" width="32"
+        height="32">
+
+
+        <div class="card-row row">
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title figure-title">Average Overall Rating</h5>
+                        <h6 class="card-subtitle figure display-4">{{ave_overall_rating()}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title figure-title">Top Brewery</h5>
+                        <h6 class="card-subtitle figure display-4">Belfast Brewing</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title figure-title">Best Tasting Beer</h5>
+                        <h6 class="card-subtitle figure display-4">Rauch Ür Bock</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title figure-title">Worst Beer On Ave</h5>
+                        <h6 class="card-subtitle figure display-4">Coors Light</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr scope="col">Top rated beers by taste</tr>
+                        <tr>
+                            <th scope="col">Beer Name</th>
+                            <th scope="col">Taste Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for beer in top_five_highest_rating() %}
+                        <tr>
+                            <td>{{beer}}</td>
+                            <td></td>
+                        </tr>
+                        ​{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr scope="col">Five lowest rated beers by overall average review rating</tr>
+                        <tr>
+                            <th scope="col">Beer Name</th>
+                            <th scope="col">Average Rating</th>
+                            <th scope="col">Taste Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">chart</h5>
+                        <canvas id="chart-2" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">chart</h5>
+                        <canvas id="chart-3" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">chart</h5>
+                        <canvas id="chart-4" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">chart</h5>
+                        <canvas id="chart-5" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-light">
+                    <thead>
+                        <tr>
                             <th scope="col">#</th>
                             <th scope="col">First</th>
                             <th scope="col">Last</th>
                             <th scope="col">Handle</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <!-- HINT: Jinja loops may also work well here! -->
-                          <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                          </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-  </main>
-</div>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr />
+        <div class='container'>
+            <a class="back-to-top" href='#content'>Back to the top</a>
+        </div>
+    </section>
 
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-<script>
-  // HINT: You may want to use Chart JS here!
-</script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+        var ctx = document.getElementById('chart-2').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                responsive: false
+            }
+        });
+        var ctx = document.getElementById('chart-3').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgba(0, 230, 64, 1)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                responsive: false
+            }
+        });
+        var ctx = document.getElementById('chart-4').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(64, 234, 247)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                responsive: false
+            }
+        });
+        var ctx = document.getElementById('chart-5').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgb(233, 137, 11)',
+                    borderColor: 'black',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                responsive: false
+            }
+        });
+
+        function bigImg(x) {
+            x.style.height = "604px";
+            x.style.width = "604px";
+        }
+
+        function normalImg(x) {
+            x.style.height = "32px";
+            x.style.width = "32px";
+            x.style.display = "none";
+        }
+    </script>
 </body>
+
 </html>

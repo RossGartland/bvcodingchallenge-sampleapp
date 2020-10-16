@@ -1,12 +1,69 @@
-/* HINT: Add more styles here! */
-body {
-    border-top: 0.75rem solid #002e6e;
-}
-
-.bg-navy {
-    background: #002e6e;
-}
-
 .text-radical-red {
     color: #ff4b78;
 }
+
+
+html {
+  color: rgb(51, 51, 51);
+  scroll-behavior: smooth;
+}
+body {
+  background-color:#F5F5F5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.content {
+  padding: 0 30px 30px;
+  max-height: 100%;
+  margin-top: 30px;
+}
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  position: relative;
+  border: 0;
+  color: black;
+  text-align: center;
+}
+.card-title {
+  font-weight: bold;
+}
+
+.figure-title {
+  font-size: 2rem;
+}
+
+.back-to-top {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+  
+canvas {
+    margin: 0 auto;
+}
+@media only screen and (max-width: 600px) {
+  .dashboard-title {
+    font-size: 2rem;
+  }
+}
+
